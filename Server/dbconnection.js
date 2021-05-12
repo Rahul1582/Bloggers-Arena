@@ -4,12 +4,17 @@ const connect = "mongodb+srv://rkp_blog:rkp_blog@cluster0.v6mg9.mongodb.net/myFi
 
 const connectdb = async ()=>{
 
-   await mongoose.connect(connect , {    
+    await mongoose.connect(connect , {    
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true});
+    useCreateIndex: true})
    
-    console.log('Database Connected ..')
+    .then(() => {
+        console.log("Connected with the Database");
+      })
+      .catch(error => {
+        console.log(error, "Not Connected with the Database ");
+ });
 }
 
 module.exports = connectdb;
