@@ -13,4 +13,4 @@ app.get('/', (req,res) => {
     res.send('This is a Blog Posting Application MERN');
 })
 
-app.listen(port, ()=> console.log("Server Stated"));
+app.listen(PORT, ()=> console.log("Server Stated"));
