@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const post = {
+const post = new Schema({
    title: {
       type: String,
       required: true
@@ -20,8 +20,6 @@ const post = {
       required: true,
       default: Date.now
    }
-};
+});
 
-const PostSchema = new Schema(post);
-
-module.exports = mongoose.model("posts", PostSchema);
+module.exports = mongoose.model("posts", post);

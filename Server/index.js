@@ -1,15 +1,23 @@
 const express = require('express');
-const connectdb = require('./dbconnection');
+const connectdb = require('./Config/dbconnection');
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const users = require("./routes/users")
 require("dotenv").config();
-
+const passport = require("passport");
 
 const app= express();
 app.use(cors());
-app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Middleware for verifying token
+app.use(passport.initialize());
+require("./middleware/verifytoken")(passport);
+
+
+
+app.use("/auth",users);
 
 // Database Connection
 connectdb();
@@ -21,4 +29,4 @@ app.get('/', (req,res) => {
     res.send('This is a Blog Posting Application MERN');
 })
 
-app.listen(PORT, ()=> console.log("Server Started and running on port ${PORT}"));
+app.listen(PORT, ()=> console.log(`Server Started and running on port ${PORT}`));

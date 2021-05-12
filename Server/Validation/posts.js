@@ -1,14 +1,14 @@
 const validator= require("validator");
-const isempty =require("is-empty");
+const isEmpty =require("is-empty");
 
-module.exports = validatedregistercontent = data => {
+module.exports = validposts = data => {
     
     let flaws = {};
 
     let {title , body} =data;
 
 
-    if(!isempty(title)){
+    if(!isEmpty(title)){
         title=title;
     }
 
@@ -16,7 +16,7 @@ module.exports = validatedregistercontent = data => {
         title="";
     }
 
-    if(!isempty(body)){
+    if(!isEmpty(body)){
         body=body;
     }
 
@@ -24,17 +24,17 @@ module.exports = validatedregistercontent = data => {
         body="";
     }
 
-    if(validator.isempty(title)){
+    if(validator.isEmpty(title)){
        flaws.title="Name is Required";
     }
 
-    if(validator.isempty(body)){
+    if(validator.isEmpty(body)){
         flaws.body = "Body is Required";
     }
 
     return {
         flaws,
-        isValid: isempty(flaws)
+        isValid: isEmpty(flaws)
      };
 
 };

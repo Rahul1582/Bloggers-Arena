@@ -1,14 +1,14 @@
 const validator= require("validator");
-const isempty =require("is-empty");
+const isEmpty =require("is-empty");
 
-module.exports = validatedregistercontent = data => {
+module.exports = validlogin = data => {
     
     let flaws = {};
 
     let {email , password} =data;
 
 
-    if(!isempty(email)){
+    if(!isEmpty(email)){
         email=email;
     }
 
@@ -16,7 +16,7 @@ module.exports = validatedregistercontent = data => {
         email="";
     }
 
-    if(!isempty(password)){
+    if(!isEmpty(password)){
         password=password;
     }
 
@@ -24,15 +24,15 @@ module.exports = validatedregistercontent = data => {
         password="";
     }
 
-    if(validator.isempty(email)){
+    if(validator.isEmpty(email)){
        flaws.email="Name is Required";
     }
 
-    if(validator.isEmail(email)){
+    if(!validator.isEmail(email)){
         flaws.email="Enter a valid Email Id.";
     }
 
-    if(validator.isempty(password)){
+    if(validator.isEmpty(password)){
         flaws.password = "Password is Required";
     }
 
@@ -41,10 +41,9 @@ module.exports = validatedregistercontent = data => {
      }
 
 
-
     return {
         flaws,
-        isValid: isempty(flaws)
+        isValid: isEmpty(flaws)
      };
 
 };
