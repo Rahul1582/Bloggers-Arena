@@ -58,7 +58,7 @@ router.post('/register', (req,res,next) =>{
                           email: email,
                           password: hash
                         },
-                        function (err, user) {
+                        (err, user)=> {
                           if (err) {
                             return res.json({ status: 500, message: "Internal Server Error" });
                           } 

@@ -3,6 +3,7 @@ const connectdb = require('./Config/dbconnection');
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const users = require("./routes/users")
+const posts = require("./routes/posts");
 require("dotenv").config();
 const passport = require("passport");
 
@@ -16,8 +17,8 @@ app.use(passport.initialize());
 require("./middleware/verifytoken")(passport);
 
 
-
 app.use("/auth",users);
+app.use("/posts",posts);
 
 // Database Connection
 connectdb();

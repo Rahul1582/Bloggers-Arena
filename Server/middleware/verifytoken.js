@@ -8,24 +8,22 @@ final.jwtFromRequest =  ExtractJwt.fromAuthHeaderAsBearerToken();
 final.secretOrKey = secret.sectoken();
 
 module.exports = passport => {
-    passport.use(
-       new JwtStrategy(final, (jwt_payload, done) => {
-          User.findOne({ _id: jwt_payload.id } , (err , user) =>{
+  passport.use(
+     new JwtStrategy(final, (jwt_payload, done) => {
+        user.findOne({ _id: jwt_payload.id })
+           .then(user => {
+              if (user) {
+                 return done(null, user);
+              } 
               
-            if(err){
-                return res.json({
-                    status: 500,
-                    auth: false,
-                    message: "Failed to authenticate token.",
-                  });
-            }
-
-            else if(user){
-                return done(null, user);
-            }
-          });
-    
-       })
-    );
- };
+              else {
+                 return done(null, false);
+              }
+           })
+           .catch(err =>
+              console.log({ error: "Error authenticating the user" })
+           );
+     })
+  );
+};
 

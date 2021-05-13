@@ -5,7 +5,7 @@ module.exports = validposts = data => {
     
     let flaws = {};
 
-    let {title , body} =data;
+    let {title , body ,author} =data;
 
 
     if(!isEmpty(title)){
@@ -24,12 +24,24 @@ module.exports = validposts = data => {
         body="";
     }
 
+    if(!isEmpty(author)){
+        author=author;
+    }
+
+    else{
+        author="";
+    }
+
     if(validator.isEmpty(title)){
        flaws.title="Name is Required";
     }
 
     if(validator.isEmpty(body)){
         flaws.body = "Body is Required";
+    }
+
+    if(validator.isEmpty(author)){
+        flaws.author = "Author is Required";
     }
 
     return {
