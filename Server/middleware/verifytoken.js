@@ -8,6 +8,7 @@ final.jwtFromRequest =  ExtractJwt.fromAuthHeaderAsBearerToken();
 final.secretOrKey = secret.sectoken();
 
 module.exports = passport => {
+
   passport.use(
      new JwtStrategy(final, (jwt_payload, done) => {
         user.findOne({ _id: jwt_payload.id })
@@ -25,5 +26,6 @@ module.exports = passport => {
            );
      })
   );
+  
 };
 
