@@ -1,31 +1,30 @@
-const JwtStrategy = require("passport-jwt").Strategy;
-const ExtractJwt = require("passport-jwt").ExtractJwt;
 const user = require("../models/newuser");
 const secret = require("../Config/sectoken");
+const jwt = require("jsonwebtoken");
 
-const final = {};
-final.jwtFromRequest =  ExtractJwt.fromAuthHeaderAsBearerToken();
-final.secretOrKey = secret.sectoken();
 
-module.exports = passport => {
 
-  passport.use(
-     new JwtStrategy(final, (jwt_payload, done) => {
-        user.findOne({ _id: jwt_payload.id })
-           .then(user => {
-              if (user) {
-                 return done(null, user);
-              } 
-              
-              else {
-                 return done(null, false);
-              }
-           })
-           .catch(err =>
-              console.log({ error: "Error authenticating the user" })
-           );
-     })
-  );
-  
-};
+function verifyToken(req, res, next) {
+   const token = req.headers["x-access-token"];
+   if (!token)
+     return res.json({
+       status: 500,
+       auth: false,
+       message: "No token provided.",
+     });
+   jwt.verify(token, secret.sectoken(), function (err, decoded) {
+     if (err) {
+       return res.json({
+         status: 500,
+         auth: false,
+         message: "Failed to authenticate token.",
+       });
+     }
+   //   console.log(decoded);
+     req.username = decoded.name;
+     next();
+   });
+ }
+
+ module.exports = verifyToken;
 

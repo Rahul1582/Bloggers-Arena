@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const post = require("../models/newpost");
-const passport = require("passport");
+const verifytoken = require("../middleware/verifytoken");
 const validpost = require("../Validation/posts");
 
 
-router.get("/",passport.authenticate("jwt", { session: false }),(req, res) => {
+router.get("/",verifytoken,(req, res) => {
 
-
-    post.find({author:req.user.name} , (err,posts)=>{
+    const username = req.username;
+    console.log(username);
+    post.find({author : username} , (err,posts)=>{
 
         if(err){
             return res.json({status:400, message:"Error Fetching posts of the user"});
@@ -31,7 +32,7 @@ router.get("/post/:id" , (req,res)=>{
         }
 
         else{
-            return res.json({status : 400},posts);
+            return res.json({status : 200,posts});
         }
     });
 });
@@ -46,19 +47,20 @@ router.get("/author/:author" , (req,res)=>{
         }
 
         else{
-            return res.json({status : 400},posts);
+            return res.json({status :200,posts});
         }
     });
 });
 
 
-router.post("/newpost",passport.authenticate("jwt", { session: false }) , (req,res)=>{
+router.post("/newpost",verifytoken , (req,res)=>{
 
     const {flaws, isValid} = validpost(req.body);
 
     const title=req.body.title;
     const body = req.body.body;
-
+    const author = req.body.author;
+    const username = req.username;
     if(!isValid){
         return res.status(400).json(flaws);
     }
@@ -81,7 +83,7 @@ router.post("/newpost",passport.authenticate("jwt", { session: false }) , (req,r
                         {
                           title:title,
                           body:body,
-                          author:req.user.name
+                          author:username
                         },
 
                          (err, posts) => {
@@ -100,7 +102,7 @@ router.post("/newpost",passport.authenticate("jwt", { session: false }) , (req,r
 });
 
 
-router.post("/update/:id", passport.authenticate("jwt", { session: false }) ,(req , res)=>{
+router.post("/update/:id",verifytoken ,(req , res)=>{
 
     const {flaws, isValid} = validpost(req.body);
 
@@ -129,7 +131,7 @@ router.post("/update/:id", passport.authenticate("jwt", { session: false }) ,(re
 
 
 
-router.post("/delete/:id",passport.authenticate("jwt", { session: false }), (req, res) =>{
+router.post("/delete/:id",verifytoken, (req, res) =>{
 
 
     post.findOneAndDelete({_id:req.params.id} ,(err,posts)=>{

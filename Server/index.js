@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware for verifying token
-app.use(passport.initialize());
-require("./middleware/verifytoken")(passport);
+// app.use(passport.initialize());
+// require("./middleware/verifytoken")(passport);
 
 
 app.use("/auth",users);
