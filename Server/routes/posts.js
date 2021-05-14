@@ -71,7 +71,7 @@ router.post("/newpost",passport.authenticate("jwt", { session: false }) , (req,r
 
         else if(posts){
            
-            return res.json({status:400 , message : "Post Already Exists with same Title, Body and Author!!"});
+            return res.json({status:400 , message : "Post Already Exists with same Title and Body!!"});
   
         }
 
