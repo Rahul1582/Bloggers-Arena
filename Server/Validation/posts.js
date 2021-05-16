@@ -33,7 +33,7 @@ module.exports = data => {
     }
 
     if(validator.isEmpty(title)){
-       flaws.title="Name is Required";
+       flaws.title="Title is Required";
     }
 
     if(validator.isEmpty(body)){

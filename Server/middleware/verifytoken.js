@@ -21,6 +21,7 @@ function verifyToken(req, res, next) {
        });
      }
    //   console.log(decoded);
+   
      req.username = decoded.name;
      next();
    });

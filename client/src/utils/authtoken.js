@@ -1,13 +1,11 @@
-import axios from "axios";
-
-const setAuthToken = token => {
-   if (token) {
-      axios.defaults.headers.common["Authorization"] = token;
+export default function authHeader() {
+   const user = JSON.parse(localStorage.getItem('user'));
+ 
+   if (user && user.accessToken) {
+     return { 'x-access-token': user.accessToken };      
    } 
    
    else {
-      delete axios.defaults.headers.common["Authorization"];
+     return {};
    }
-};
-
-export default setAuthToken;
+ }

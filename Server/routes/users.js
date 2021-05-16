@@ -22,7 +22,7 @@ router.post('/register', (req,res,next) =>{
 
 
     if(!isValid){
-        return res.status(400).json(flaws);
+        return res.json({status:500 , flaws});
     }
 
     User.findOne({$or: [{ email }, { name }] } , (err,user) =>{
@@ -38,7 +38,7 @@ router.post('/register', (req,res,next) =>{
             }
 
             else{
-                return res.json({status:400 , message : "Name Already Exists"});
+                return res.json({status:400 , message : "Name Already Exists ! Please Type a new one"});
             }
             
         }
@@ -64,7 +64,7 @@ router.post('/register', (req,res,next) =>{
                           } 
                           
                           else {
-                            return res.json({status: 200, message: "Registered Successfully"});
+                            return res.json({status: 200, message: "Registered Successfully | Login to Continue"});
                         }
                     }
                     );
@@ -83,7 +83,7 @@ router.post("/login" ,(req,res,next)=> {
 
     if(!isValid){
 
-        return res.status(400).json(flaws);
+        return res.json({status: 500 , flaws});
     }
 
     const email= req.body.email;
@@ -112,14 +112,14 @@ router.post("/login" ,(req,res,next)=> {
                       }
 
                       else{
-                        return res.json({success: true,message: "Success",token:token});
+                        return res.json({success: true,message: "Login Success", token:token});
                       }
                       
                    });
                 } 
                 
                 else {
-                   return res.json({ status:400 , message: "Password is Incorrect" });
+                   return res.json({ status:400 , message: "Check the Password Again. Password is Incorrect" });
                 }
              });
 
@@ -128,7 +128,7 @@ router.post("/login" ,(req,res,next)=> {
 
         else{
 
-            return res.json({status:404 , message:"User not Registered"});
+            return res.json({status:404 , message:"User not Registered !"});
         }
     });
 

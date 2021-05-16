@@ -3,15 +3,10 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 60vmin;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -22,6 +17,14 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+body {
+  margin: 0;
+  font-family:'Courier New', Courier, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #121212;
 }
 
 .App-link {
