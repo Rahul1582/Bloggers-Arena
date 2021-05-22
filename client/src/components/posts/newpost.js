@@ -1,6 +1,4 @@
-import React, {useState ,useEffect, Component } from 'react';
-//import { render } from 'react-dom';
-import {Helmet} from 'react-helmet'
+import React, {useState ,useEffect} from 'react';
 import { Container} from "react-bootstrap";
 import axios from 'axios';
 import "./../../css/newpost.css";

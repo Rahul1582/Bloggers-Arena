@@ -1,7 +1,7 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route,Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 // import logo from './logo.svg';
 import Login from "./components/login";
 import SignUp from "./components/register";
@@ -11,9 +11,7 @@ import Newpost from "./components/posts/newpost";
 import Allposts from "./components/posts/allposts";
 import Createposts from "./components/posts/createpost";
 import Header from './components/navbar';
-// import Nav from "./components/navbar";
-// import { Navbar, Nav, Container } from 'react-bootstrap';
-// import Nav from './components/navbar';
+
 
 function App() {
   return (
