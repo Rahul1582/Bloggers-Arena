@@ -8,7 +8,7 @@ const validpost = require("../Validation/posts");
 router.get("/",verifytoken,(req, res) => {
 
     const username = req.username;
-    console.log(username);
+    // console.log(username);
     post.find({author : username} , (err,posts)=>{
 
         if(err){

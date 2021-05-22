@@ -22,23 +22,23 @@ router.post('/register', (req,res,next) =>{
 
 
     if(!isValid){
-        return res.json({status:500 , flaws});
+        return res.json({status:500 , flaws,isValid});
     }
 
     User.findOne({$or: [{ email }, { name }] } , (err,user) =>{
 
         if(err){
-            return res.json({status:500 , message : "Internal Server Error"});
+            return res.json({status:500 , message : "Internal Server Error",isValid});
         }
 
         else if(user){
 
             if(user.email == email){
-                return res.json({status:400 , message : "Email Already Exists"});
+                return res.json({status:400 , message : "Email Already Exists",isValid});
             }
 
             else{
-                return res.json({status:400 , message : "Name Already Exists ! Please Type a new one"});
+                return res.json({status:400 , message : "Name Already Exists ! Please Type a new one",isValid});
             }
             
         }
@@ -49,7 +49,7 @@ router.post('/register', (req,res,next) =>{
                 bcrypt.hash(password, salt, (err, hash) => {
                     
                     if(err){
-                        return res.json({status:500 , message : "Internal Server Error"}); 
+                        return res.json({status:500 , message : "Internal Server Error",isValid}); 
                     }
 
                     User.create(
@@ -60,11 +60,11 @@ router.post('/register', (req,res,next) =>{
                         },
                         (err, user)=> {
                           if (err) {
-                            return res.json({ status: 500, message: "Internal Server Error" });
+                            return res.json({ status: 500, message: "Internal Server Error" ,isValid});
                           } 
                           
                           else {
-                            return res.json({status: 200, message: "Registered Successfully | Login to Continue"});
+                            return res.json({status: 200, message: "Registered Successfully | Login to Continue",isValid});
                         }
                     }
                     );
@@ -83,7 +83,7 @@ router.post("/login" ,(req,res,next)=> {
 
     if(!isValid){
 
-        return res.json({status: 500 , flaws});
+        return res.json({status: 500 , flaws, isValid});
     }
 
     const email= req.body.email;
@@ -92,7 +92,7 @@ router.post("/login" ,(req,res,next)=> {
     User.findOne({email} , (err,user) =>{
 
         if(err){
-            return res.json({status:500 , message : "Internal Server Error"});
+            return res.json({status:500 , message : "Internal Server Error",isValid});
         }
 
         else if(user){
@@ -108,18 +108,18 @@ router.post("/login" ,(req,res,next)=> {
                    jwt.sign(payload, secret.sectoken(), { expiresIn: 5000 }, (err, token) => {
 
                       if (err) {
-                        return res.json({status:500 , message : "Internal Server Error"});
+                        return res.json({status:500 , message : "Internal Server Error",isValid});
                       }
 
                       else{
-                        return res.json({success: true,message: "Login Success", token:token});
+                        return res.json({status:200,message: "Login Success", token:token ,isValid});
                       }
                       
                    });
                 } 
                 
                 else {
-                   return res.json({ status:400 , message: "Check the Password Again. Password is Incorrect" });
+                   return res.json({ status:400 , message: "Check the Password Again. Password is Incorrect" ,isValid});
                 }
              });
 
@@ -128,7 +128,7 @@ router.post("/login" ,(req,res,next)=> {
 
         else{
 
-            return res.json({status:404 , message:"User not Registered !"});
+            return res.json({status:404 , message:"User not Registered !",isValid});
         }
     });
 
