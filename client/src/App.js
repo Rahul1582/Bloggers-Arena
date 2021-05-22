@@ -1,24 +1,36 @@
 import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import logo from './logo.svg';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route,Link} from "react-router-dom";
+// import logo from './logo.svg';
 import Login from "./components/login";
 import SignUp from "./components/register";
 import Home from "./components/home";
-import Button from '@material-ui/core/Button';
+import CreatePosts from "./components/posts/createpost";
+import Newpost from "./components/posts/newpost";
+import Allposts from "./components/posts/allposts";
+import Createposts from "./components/posts/createpost";
+// import Nav from "./components/navbar";
+// import { Navbar, Nav, Container } from 'react-bootstrap';
+// import Nav from './components/navbar';
 
 function App() {
   return (
+   
     <Router>
-     
+   
     <div className="App">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/sign-in" component={Login} />
-            <Route exact path="/sign-up" component={SignUp} />
+            <Route path="/sign-in" component={Login} />
+            <Route path="/sign-up" component={SignUp} />
+            <Route path='/post' component = {CreatePosts} />
+            <Route path='/newpost' component = {Newpost} />
+            <Route path='/allposts' component = {Allposts}/>
+           
           </Switch>
-        
+       
+  
     </div>
     </Router>
   );

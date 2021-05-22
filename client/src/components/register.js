@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
-import './register.css';
+import './../css/register.css';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -114,9 +114,14 @@ export default function Register() {
             console.log(res);
             const newmessage = res.data.message || res.data.flaws.name || res.data.flaws.email || res.data.flaws.password;
             setMessage(newmessage);
-            setSuccessful(true);
-            // localStorage.setItem('usertoken', res.data.access);
-            // localStorage.setItem('user', res.config.data);
+            const valid = res.data.isValid;
+
+            if(valid && res.data.status==200){
+              setSuccessful(true);
+              // window.location='/login';
+            }
+            
+         
         }).catch(function (err){
           setMessage("Check your parameters. Registration not successful!!");
           setSuccessful(false);

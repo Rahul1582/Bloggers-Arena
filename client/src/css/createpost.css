@@ -1,0 +1,39 @@
+.jumbotron{
+
+    text-align: center;
+    background-color: grey;
+    color:black;
+    font-size: large;
+    font-weight: bolder;
+
+}
+
+
+.row{
+    text-align: center;
+    justify-content: center;
+    color: white;
+}
+
+.h2{
+    text-align: center;
+    justify-content: center;
+    color: white;
+}
+
+.col{
+    text-align: center;
+    justify-content: center;
+    color: white;
+}
+/* 
+.display-3{
+    text-align: center;
+    justify-content: center;
+    color: white;
+
+} */
+/* 
+body{
+    background-color: #121212;
+} */

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+.font{
+    font-size: 20px;
+    
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color:lightseagreen;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:bolder;
+    font-variant: normal;
+}
+

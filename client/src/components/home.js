@@ -2,13 +2,13 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 import img1 from '../asset-1.png';
-import './home.css';
+import './../css/home.css';
 
 export default function Home() {
 
   return (
- 
-<div className="container hero">
+ <div className="hero">
+<div className="container">
 <br>
 </br>
 
@@ -18,7 +18,7 @@ export default function Home() {
                               BLOG POST APPLICATION  
                     </h1>
                             <p>
-                            Tell Your Story to the World !! Join with us! Login or Register. Write your own Blog !! Express your feelings!!
+                            Save Your Blogs !! Join with us! Login or Register. Write your own Blog !! Express your feelings!!
                     </p>
                    <Link to = "/sign-up"><Button variant="contained" color="primary">Register</Button></Link>
 
@@ -37,6 +37,8 @@ export default function Home() {
                       </div>
                     </div> 
                         
+         </div>
+
          </div>
   );
 }
