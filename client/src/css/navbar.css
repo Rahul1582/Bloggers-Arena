@@ -6,8 +6,10 @@
 
 .navbar-dark .navbar-nav .nav-link {
     color:lightseagreen;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Yeon Sung', cursive;
     font-weight:bolder;
     font-variant: normal;
+    text-align: center;
+    justify-content: center;
 }
 

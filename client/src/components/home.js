@@ -14,7 +14,7 @@ export default function Home() {
 
                     <div className="row align-items-center text-center text-md-left">
                         <div className="col-lg-4">
-                            <h1 className="mb-3 display-3">
+                            <h1 className="mb-3 display-2">
                               BLOG POST APPLICATION  
                     </h1>
                             <p>

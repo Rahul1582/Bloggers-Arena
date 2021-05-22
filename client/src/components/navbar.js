@@ -100,45 +100,64 @@
 
 
 
-import React, { Component } from 'react';
+import React, { useState ,useEffect ,Component } from 'react';
 import { Link } from 'react-router-dom';
-import "./../css/navbar.css"
+import axios from "axios";
+import "./../css/navbar.css";
+
 
 export default function Header() {
 
+  
+  const [message, setMessage] = useState("");
+  const [successful, setSuccessful] = useState(false);
+  const [loggedin , setloggedin] = useState(false);
 
-//   renderLinks() {
-//     if (1) {      
-//       return (
-//         <div className="navbar-nav nav-item dropdown ml-auto">
-//           <a className="nav-link dropdown-toggle" href="http://example.com" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{this.props.username}</a>
-//           <div className="dropdown-menu" aria-labelledby="dropdown02">
-//             <Link className="dropdown-item" to="/my_posts">Your Posts</Link>
-//             <Link className="dropdown-item" to="/profile">Your Profile</Link>
-//             <div className="dropdown-divider" />
-//             <Link className="dropdown-item" to="/settings">Settings</Link>
-//             <Link className="dropdown-item" to="/">Sign out</Link>
-//           </div>
-//         </div>
-//       );
-//     } else {
-//       return (
-//         <ul className="navbar-nav">
-//           <li className="nav-item" key={1}>
-//             <Link className="btn btn-primary" to="/signup">Sign Up</Link>
-//           </li>
-//           <li className="nav-item" key={2}>
-//             <Link className="btn btn-secondary ml-sm-2" to="/signin">Sign In</Link>
-//           </li>
-//         </ul>
-//       );
-//     }
-//   }
+  useEffect(() => {
+    // GET request using axios inside useEffect React hook
+    axios.get('posts/', {
+        headers: {
+            "x-access-token": localStorage.getItem("usertoken")
+        }
+      })
+      .then((res) => {
+        setSuccessful(true);
+      })
+      .catch((error) => {
+        setSuccessful(false);
+      })
+
+// empty dependency array means this effect will only run once (like componentDidMount in classes)
+}, []);
+
+  useEffect(() => {
+  
+    if(localStorage.getItem("loggedin")=='true'){
+      
+      if(!loggedin){
+        setloggedin(true);
+      }
+
+      else{
+
+        if(loggedin){
+          setloggedin(false);
+        }
+        
+      }
+
+    }
+}, []);
+
 
 {
    return (
     <nav className="navbar navbar-dark bg-dark sticky-top navbar-expand-lg font">
-    <div className="collpase navbar-collapse">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
     <img src="https://i.ibb.co/6XzzZb8/mylogo.png" width="100" height="100" class="d-inline-block align-left" alt="Navbar Image" loading="lazy"/>
 
@@ -146,24 +165,46 @@ export default function Header() {
     <ul className="navbar-nav mr-auto">
       <li className="navbar-item font">
       <Link to="/" className="nav-link">Home</Link>
-      </li>          
+      </li>   
+
+      
+      <li className="navbar-item font">
+      <Link to="/post" className="nav-link">Details</Link>
+      </li>  
+
+      <li className="navbar-item font">
+      <Link to="/newpost" className="nav-link">New Post</Link>  
+      </li>        
 
       <li className="navbar-item font">
       <Link to="/allposts" className="nav-link">All Posts</Link>
-      </li>        
-
+      </li>  
 
       <li className="navbar-item font">
       <Link to="/sign-up" className="nav-link">Register</Link>
-      </li>
+      </li>      
 
+
+    {!loggedin   ? ( 
+      
       <li className="navbar-item font">
       <Link to="/sign-in" className="nav-link">Login</Link>
       </li>
-     
-    </ul>
 
-   
+    ) : (
+
+      <li className="navbar-item font">
+      <Link to="/" className="nav-link" 
+      onClick={() => {
+      window.localStorage.removeItem("loggedin");
+      window.localStorage.removeItem("usertoken");
+      window.location = "/";
+      }}> Logout</Link>
+      </li>
+
+    )}
+
+    </ul>
     </div>
   </nav>
     );

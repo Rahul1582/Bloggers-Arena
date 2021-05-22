@@ -10,15 +10,16 @@ import CreatePosts from "./components/posts/createpost";
 import Newpost from "./components/posts/newpost";
 import Allposts from "./components/posts/allposts";
 import Createposts from "./components/posts/createpost";
+import Header from './components/navbar';
 // import Nav from "./components/navbar";
 // import { Navbar, Nav, Container } from 'react-bootstrap';
 // import Nav from './components/navbar';
 
 function App() {
   return (
-   
+    
     <Router>
-   
+   <Header />
     <div className="App">
           <Switch>
             <Route exact path="/" component={Home} />

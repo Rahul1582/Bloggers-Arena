@@ -61,8 +61,9 @@ router.post("/newpost",verifytoken , (req,res)=>{
     const body = req.body.body;
     const author = req.body.author;
     const username = req.username;
+    
     if(!isValid){
-        return res.status(400).json(flaws);
+        return res.json({status:500 , flaws,isValid});
     }
 
     post.findOne({$and: [{ title }, { body} ] } , (err,posts) =>{
@@ -107,7 +108,7 @@ router.post("/update/:id",verifytoken ,(req , res)=>{
     const {flaws, isValid} = validpost(req.body);
 
     if(!isValid){
-        return res.status(400).json(flaws);
+        return res.json({status:500 , flaws,isValid});
     }
 
     const title=req.body.title;
