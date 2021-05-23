@@ -69,12 +69,12 @@ router.post("/newpost",verifytoken , (req,res)=>{
     post.findOne({$and: [{ title }, { body} ] } , (err,posts) =>{
 
         if(err){
-            return res.json({status:500 , message : "Internal Server Error"});
+            return res.json({status:500 , message : "Internal Server Error",isValid});
         }
 
         else if(posts){
            
-            return res.json({status:400 , message : "Post Already Exists with same Title and Body!!"});
+            return res.json({status:400 , message : "Post Already Exists with same Title and Body!!",isValid});
   
         }
 
@@ -89,11 +89,11 @@ router.post("/newpost",verifytoken , (req,res)=>{
 
                          (err, posts) => {
                           if (err) {
-                            return res.json({ status: 500, message: "Internal Server Error" });
+                            return res.json({ status: 500, message: "Internal Server Error" ,isValid});
                           } 
                           
                           else {
-                            return res.json({status: 200, message: "Post Added Succesfully"});
+                            return res.json({status: 200, message: "Post Added Succesfully",isValid});
                         }
                     }
                     );      
@@ -119,12 +119,12 @@ router.post("/update/:id",verifytoken ,(req , res)=>{
         { new: true ,useFindAndModify: false} , (err,posts) =>{
             
             if(err){
-                res.json({status: 400, message: "Error Updating Existing Post" })
+                res.json({status: 400, message: "Error Updating Existing Post" ,isValid})
             }
 
 
             else{
-                res.json({status: 200, meesage: "Post Updated Successully"});
+                res.json({status: 200, meesage: "Post Updated Successully",isValid});
             }
 
         });

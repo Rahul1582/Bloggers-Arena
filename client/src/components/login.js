@@ -72,7 +72,7 @@ export default function Login() {
               localStorage.setItem('usertoken', res.data.token);
               localStorage.setItem('loggedin',true);
 
-              window.location='/allposts';
+              window.location='/details';
             }
 
 

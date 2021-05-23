@@ -148,7 +148,7 @@ export default function Header() {
 
       
       <li className="navbar-item font">
-      <Link to="/post" className="nav-link">Details</Link>
+      <Link to="/details" className="nav-link">Details</Link>
       </li>  
 
       <li className="navbar-item font">
@@ -157,6 +157,10 @@ export default function Header() {
 
       <li className="navbar-item font">
       <Link to="/allposts" className="nav-link">All Posts</Link>
+      </li>  
+
+      <li className="navbar-item font">
+      <Link to="/searchuserposts" className="nav-link">Search User Posts</Link>
       </li>  
 
       <li className="navbar-item font">

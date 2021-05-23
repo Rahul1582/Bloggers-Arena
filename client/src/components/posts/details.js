@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
-import "./../../css/createpost.css";
+import "./../../css/details.css";
 
-export default function Createposts() 
+export default function Details() 
 {
 return(
 
     
   <div>
-  
-
       <Container>
-
+        
     <br></br><br></br>
 
     <div className="jumbotron">

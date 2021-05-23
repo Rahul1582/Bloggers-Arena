@@ -60,6 +60,7 @@ export default function Newpost()
 
     }).catch(function (err){
       setMessage("Check your parameters. Post Addition Not Successful!!");
+      setSuccessful(false);
     })
 
   }
@@ -91,7 +92,7 @@ export default function Newpost()
 
         <Container>
             <br></br><br></br>
-            <h1>Add A New Post</h1>
+            <h1>ADD A NEW POST</h1>
     
         <br></br>
       <div className='back'>
