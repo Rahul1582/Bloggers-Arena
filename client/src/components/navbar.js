@@ -1,105 +1,3 @@
-// import React from "react";
-// import PropTypes from "prop-types";
-// import { Navbar, Nav, Button } from "react-bootstrap";
-// import { Link } from "react-router-dom";
-
-// // const onclick = (e) => {
-// //   const password = e.target.value;
-// //   setPassword(password);
-// // };
-
-// const Navigationbar =() => (
-//    <Navbar
-//       bg="dark"
-//       variant="dark"
-//       expand="sm"
-//       className="mb-5"
-//       style={{ minHeight: "5rem" }}
-//    >
-      
-//          <Navbar.Brand>
-            
-//          </Navbar.Brand>
-   
-//       <Nav className="ml-auto">
-
-//       <Link to="/">
-//                <Button
-//                   variant="outline-light"
-//                   className="mr-sm-2"
-                  
-//                >
-//                   Home
-//                </Button>
-//             </Link>
-//        <Navbar.Brand>
-            
-//             </Navbar.Brand>
-       
-//       <Link to="/sign-up">
-//                <Button
-//                   variant="outline-light"
-//                   className="mr-sm-2"
-                  
-//                >
-//                   Register 
-//                </Button>
-//        </Link>
-//        <Navbar.Brand>
-            
-//             </Navbar.Brand>
-
-//             <Link to="/sign-in">
-//                <Button
-//                   variant="outline-light"
-//                   className="mr-sm-2"
-                 
-//                >
-//                  Login 
-//                </Button>
-//        </Link>
-
-//             <Navbar.Brand>
-            
-//             </Navbar.Brand>
-
-//             <Link to="/all-posts">
-//                <Button
-//                   variant="outline-light"
-//                   className="mr-sm-2"
-                  
-//                >
-//                   All Posts
-//                </Button>
-//             </Link>
-
-//        <Navbar.Brand>
-            
-//             </Navbar.Brand>
-       
-//             <Link to="/">
-//                <Button
-//                   variant="outline-light"
-//                   className="mr-sm-2"
-//                >
-//                   Logout
-//                </Button>
-//             </Link>
-           
-//       </Nav>
-      
-//    </Navbar>
-// );
-
-// Navigationbar.propTypes = {
-//    auth: PropTypes.bool.isRequired,
-//    onClick: PropTypes.func.isRequired
-// };
-
-// export default Navigationbar;
-
-
-
 import React, { useState ,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./../css/navbar.css";
@@ -153,14 +51,18 @@ export default function Header() {
 
       <li className="navbar-item font">
       <Link to="/newpost" className="nav-link">New Post</Link>  
-      </li>        
+      </li>
+
+      <li className="navbar-item font">
+      <Link to="/userposts" className="nav-link">Your Posts</Link>
+      </li>          
 
       <li className="navbar-item font">
       <Link to="/allposts" className="nav-link">All Posts</Link>
       </li>  
 
       <li className="navbar-item font">
-      <Link to="/searchuserposts" className="nav-link">Search User Posts</Link>
+      <Link to="/searchuserposts" className="nav-link">Search Author Posts</Link>
       </li>  
 
       <li className="navbar-item font">

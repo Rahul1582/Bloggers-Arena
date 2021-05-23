@@ -149,5 +149,22 @@ router.post("/delete/:id",verifytoken, (req, res) =>{
 });
 
 
+router.get("/allposts",verifytoken,(req, res) => {
+
+    // console.log(username);
+    post.find({} , (err,posts)=>{
+
+        if(err){
+            return res.json({status:400, message:"Error Fetching posts!!"});
+        }
+
+        else{
+
+            return res.json({status : 200, posts});
+        }
+    });
+});
+
+
 
 module.exports = router;

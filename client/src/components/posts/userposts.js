@@ -1,26 +1,30 @@
 import React, {useState ,useEffect} from 'react';
 import axios from "axios";
 import './../../css/allposts.css';
-import { Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import UpdatePost from "./updatepost";
 
 
-
-export default function Allposts()
+export default function Userposts()
 {
 
     const [articles, setarticles] = useState([]);
     const [loggedin , setloggedin] = useState(false);
+    const [successful, setSuccessful] = useState(false);
+    const [message, setMessage] = useState("");
+    const [needupdate, setneedupdate] = useState(false);
+    const [updatearticles, setupdatearticles] = useState([]);
 
 
     useEffect(() => {
        
-        axios.get('posts/allposts', {
+        axios.get('posts/', {
             headers: {
                 "x-access-token": localStorage.getItem("usertoken")
             }
           })
           .then((res) => {
-            console.log(res.data.posts);
+            // console.log(res.data.posts);
             setarticles(res.data.posts);
           })
           .catch((error) => {
@@ -46,9 +50,60 @@ export default function Allposts()
         }
     }, []);
 
+    const updatepost = (e) =>{
 
-        if(loggedin){
-        
+     setupdatearticles(e);
+
+     setneedupdate(true);
+
+    //  console.log(updatearticles);
+
+    
+    //  window.location = '/updatepost';
+     
+    };
+
+  
+
+    const deletepost = (e) => {
+   
+      setMessage("");
+      setSuccessful(false);
+  
+      axios.post('posts/delete/'+e ,{ params: {
+         e
+       }}
+       ,{
+            headers: {
+               'Content-Type': 'application/json',
+                'Access-Control-Allow-Headers': 'x-access-token',
+                "x-access-token": localStorage.getItem("usertoken")
+            }    
+          })
+          .then((res) => {
+            console.log(res);
+           
+            const newmessage = res.data.message
+            setMessage(newmessage);
+
+            if(res.data.status===200){
+              
+              setSuccessful(true);
+
+              window.location='/allposts';
+            }
+          })
+          .catch((error) => {
+
+            setMessage("Deletion not successful!!");
+            setSuccessful(false);
+          })
+
+    };
+
+ 
+    if(loggedin){
+     
          if(articles.length===0){
 
            
@@ -61,7 +116,7 @@ export default function Allposts()
                             className={ "alert alert-danger" }
                             role="alert"
                           >
-                            No Posts are there Till Now!!.
+                            You have no Posts. Add New Posts to view the Posts.
                           </div>
                         </div>
            
@@ -74,10 +129,20 @@ export default function Allposts()
 
             return ( 
 
-        
                <div>
 
-                  
+             {/* <UpdatePost data = {updatearticles} /> */}
+ 
+              {message && (
+                 <div className="form-group">
+                   <div
+                     className={ successful ? "alert alert-success": "alert alert-danger" }
+                     role="alert"
+                   >
+                     {message}
+                   </div>
+                 </div>
+               )}
                       <ol>
                       <div className="grid-container mx-3">
                       {
@@ -105,18 +170,40 @@ export default function Allposts()
                                      <Col>Created by : {article.author}</Col>
                                      <Col>Date: {article.date}</Col>
                                   </Row>
-                                
-                               </Container>
-                                       
+                                 
+                                     <Row className="mt-4">
+                                        <Col className="text-center">
+                                           <Button
+                                              className="mr-2"
+                                              variant="outline-info"
+                                            onClick = {() => updatepost([article._id,article.title,article.body,article.author,article.date])}  
+                                           >
+                                              Edit
+                                           </Button>
+                                           <Button variant="outline-danger" onClick={() => {if(window.confirm('Are you sure you want to Delete this Post?'))deletepost(article._id); }}>
+                                              Delete
+                                           </Button>
+                                        </Col>
+                                     </Row>
+
+
+                                    
+                        </Container>
+    
                               )
                               })
                                    
                       }
+
                        </div>
                       </ol>  
+
                       </div>
+
           );
+         
          }
+ 
         }
         else{
             return (
