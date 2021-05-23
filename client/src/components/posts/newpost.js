@@ -12,7 +12,6 @@ export default function Newpost()
   const [body, setbody] = useState("");
   const [message, setMessage] = useState("");
   const [successful, setSuccessful] = useState(false);
-  const [tokensuccess, settokensuccess] = useState(false);
   const [loggedin , setloggedin] = useState(false);
 
 
@@ -51,11 +50,11 @@ export default function Newpost()
         setMessage(newmessage);
         const valid = res.data.isValid;
 
-        if(valid && res.data.status==200){
+        if(valid && res.data.status===200){
           
           setSuccessful(true);
 
-        //   window.location='/allposts';
+          window.location='/allposts';
         }
 
 
@@ -66,9 +65,9 @@ export default function Newpost()
   }
 
 
-  useEffect(() => {
+  useEffect((loggedin) => {
   
-    if(localStorage.getItem("loggedin")=='true'){
+    if(localStorage.getItem("loggedin")==='true'){
       
       if(!loggedin){
         setloggedin(true);

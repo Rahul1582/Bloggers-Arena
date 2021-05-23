@@ -8,6 +8,8 @@ export default function Allposts()
 
     const [articles, setarticles] = useState([]);
     const [loggedin , setloggedin] = useState(false);
+    const [successful, setSuccessful] = useState(false);
+    const [message, setMessage] = useState("");
 
 
     useEffect(() => {
@@ -27,9 +29,9 @@ export default function Allposts()
 
     }, []);
     
-    useEffect(() => {
+    useEffect((loggedin) => {
   
-        if(localStorage.getItem("loggedin")=='true'){
+        if(localStorage.getItem("loggedin")==='true'){
           
           if(!loggedin){
             setloggedin(true);
@@ -44,12 +46,61 @@ export default function Allposts()
         }
     }, []);
 
-    {
+
+    const deletepost = (e) => {
+   
+      setMessage("");
+      setSuccessful(false);
+  
+      axios.post('posts/delete/'+e ,{ params: {
+         e
+       }}
+       ,{
+            headers: {
+               'Content-Type': 'application/json',
+                'Access-Control-Allow-Headers': 'x-access-token',
+                "x-access-token": localStorage.getItem("usertoken")
+            }    
+          })
+          .then((res) => {
+            console.log(res);
+           
+            const newmessage = res.data.message
+            setMessage(newmessage);
+
+            if(res.data.status===200){
+              
+              setSuccessful(true);
+
+              window.location='/allposts';
+            }
+          })
+          .catch((error) => {
+
+            setMessage("Deletion not successful!!");
+            setSuccessful(false);
+          })
+
+    };
+
         if(loggedin){
 
             return ( 
+
         
                 <div>
+
+                   
+               {message && (
+                  <div className="form-group">
+                    <div
+                      className={ successful ? "alert alert-success": "alert alert-danger" }
+                      role="alert"
+                    >
+                      {message}
+                    </div>
+                  </div>
+                )}
                        <ol>
                        <div className="grid-container mx-3">
                        {
@@ -64,7 +115,7 @@ export default function Allposts()
                                    //     <h6 className="card-subtitle mb-2 text-muted">Date Posted:{article.date}</h6>
                                    //     <p className="card-text limit">{article.body}</p> </div>
                                    // </div> 
-                                   <Container className="mt-4 viewPost">
+                                   <Container className="mt-4 viewPost" key={article._id}>
                                    <Row>
                                       <Col className="text-center postTitle">
                                          <h2>{article.title}</h2>
@@ -87,7 +138,7 @@ export default function Allposts()
                                             >
                                                Edit
                                             </Button>
-                                            <Button variant="outline-danger" >
+                                            <Button variant="outline-danger" onClick={() => {if(window.confirm('Are you sure you want to Delete this Post?'))deletepost(article._id); }}>
                                                Delete
                                             </Button>
                                          </Col>
@@ -120,5 +171,4 @@ export default function Allposts()
                 </Container>
             );
         }
-}
 }

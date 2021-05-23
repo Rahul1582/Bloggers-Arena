@@ -116,7 +116,7 @@ export default function Register() {
             setMessage(newmessage);
             const valid = res.data.isValid;
 
-            if(valid && res.data.status==200){
+            if(valid && res.data.status===200){
               setSuccessful(true);
               // window.location='/login';
             }

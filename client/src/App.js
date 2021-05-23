@@ -9,7 +9,6 @@ import Home from "./components/home";
 import CreatePosts from "./components/posts/createpost";
 import Newpost from "./components/posts/newpost";
 import Allposts from "./components/posts/allposts";
-import Createposts from "./components/posts/createpost";
 import Header from './components/navbar';
 
 

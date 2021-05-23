@@ -66,7 +66,7 @@ export default function Login() {
             setMessage(newmessage);
             const valid = res.data.isValid;
 
-            if(valid && res.data.status==200){
+            if(valid && res.data.status===200){
               
               setSuccessful(true);
               localStorage.setItem('usertoken', res.data.token);

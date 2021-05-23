@@ -100,39 +100,19 @@
 
 
 
-import React, { useState ,useEffect ,Component } from 'react';
+import React, { useState ,useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from "axios";
 import "./../css/navbar.css";
 
 
 export default function Header() {
 
-  
-  const [message, setMessage] = useState("");
-  const [successful, setSuccessful] = useState(false);
   const [loggedin , setloggedin] = useState(false);
 
-  useEffect(() => {
-    // GET request using axios inside useEffect React hook
-    axios.get('posts/', {
-        headers: {
-            "x-access-token": localStorage.getItem("usertoken")
-        }
-      })
-      .then((res) => {
-        setSuccessful(true);
-      })
-      .catch((error) => {
-        setSuccessful(false);
-      })
 
-// empty dependency array means this effect will only run once (like componentDidMount in classes)
-}, []);
-
-  useEffect(() => {
+  useEffect((loggedin) => {
   
-    if(localStorage.getItem("loggedin")=='true'){
+    if(localStorage.getItem("loggedin")==='true'){
       
       if(!loggedin){
         setloggedin(true);
@@ -150,7 +130,6 @@ export default function Header() {
 }, []);
 
 
-{
    return (
     <nav className="navbar navbar-dark bg-dark sticky-top navbar-expand-lg font">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -159,7 +138,7 @@ export default function Header() {
 
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <img src="https://i.ibb.co/6XzzZb8/mylogo.png" width="100" height="100" class="d-inline-block align-left" alt="Navbar Image" loading="lazy"/>
+    <img src="https://i.ibb.co/6XzzZb8/mylogo.png" width="100" height="100" class="d-inline-block align-left" alt="" loading="lazy"/>
 
     
     <ul className="navbar-nav mr-auto">
@@ -209,4 +188,4 @@ export default function Header() {
   </nav>
     );
   }
-}
+
