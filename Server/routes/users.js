@@ -105,7 +105,7 @@ router.post("/login" ,(req,res,next)=> {
                       name: user.name
                    };
 
-                   jwt.sign(payload, secret.sectoken(), { expiresIn: 5000 }, (err, token) => {
+                   jwt.sign(payload, secret.sectoken(), (err, token) => {
 
                       if (err) {
                         return res.json({status:500 , message : "Internal Server Error",isValid});

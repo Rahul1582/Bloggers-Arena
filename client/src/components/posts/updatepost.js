@@ -7,34 +7,46 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function Updatepost(props) 
 {
 
-  const [id, setid] = useState("");
   const [title, settitle] = useState("");
-  const [author, setauthor] = useState("");
   const [body, setbody] = useState("");
   const [message, setMessage] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [loggedin , setloggedin] = useState(false);
 
-//   const { article_id , title, body , author , date } = props.data;
-  console.log(props.data);
 
-  console.log("rahul");
-  setid(props.data[0]);
-  settitle(props.data[1]);
-  setbody(props.data[2]);
-  setauthor(props.data[3]);
+    const id = props.match.params.id;
+
+    useEffect(() => {
+       
+    axios.get('http://localhost:8000/posts/post/' + id,{ params: {
+       id
+      }},
+       {
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Headers': 'x-access-token',
+            "x-access-token": localStorage.getItem("usertoken")
+        }
+      })
+      .then((res) => {
+
+          settitle(res.data.posts[0].title);
+          setbody(res.data.posts[0].body);
+        
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+
+  }, [id]);
+
 
  
-
   const onchangetitle = (e) => {
     const title = e.target.value;
     settitle(title);
   };
 
-  const onchangeauthor = (e) => {
-    const author = e.target.value;
-    setauthor(author);
-  };
 
   const onchangebody = (e) => {
     const body = e.target.value;
@@ -48,35 +60,37 @@ export default function Updatepost(props)
     setMessage("");
     setSuccessful(false);
 
-    axios.post('posts/update' + id ,{ params: {
-        id
-      }},
-      {
-        title:title,
-        body:body,
-        author:author 
-    }, {
-        headers: {
+
+    axios.post('http://localhost:8000/posts/update/' + id + "?" + id,
+    {
+      title:title,
+      body:body,
+  },
+  {
+  headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Headers': 'x-access-token',
-                "x-access-token": localStorage.getItem("usertoken")
+                "x-access-token": localStorage.getItem("usertoken"),
             }
-    }).then(function (res){
+    }).then((res) =>{
         console.log(res);
-        const newmessage = res.data.message || res.data.flaws.title || res.data.flaws.body || res.data.flaws.author;
+
+        const newmessage = res.data.message || res.data.flaws.title || res.data.flaws.body;
         setMessage(newmessage);
         const valid = res.data.isValid;
+
 
         if(valid && res.data.status===200){
           
           setSuccessful(true);
 
-          window.location='/allposts';
+          window.location='/userposts';
         }
 
 
-    }).catch(function (err){
-      setMessage("Check your parameters. Post Addition Not Successful!!");
+    }).catch((error) =>{
+      console.log(error);
+      setMessage("Check your parameters. Post Updation Not Successful!!");
       setSuccessful(false);
     })
 
@@ -117,15 +131,7 @@ export default function Updatepost(props)
     
     <form onSubmit = {handleupdatepost}>
       <div className="form-group"> 
-        <label>AUTHOR :</label>
-    
-        <input  type="text"
-            required
-            className="form-control"
-            name="author"
-            label="Author"
-            onChange={onchangeauthor}
-            value = {author}/>
+
     
         <label>TITLE :</label><input 
             type="text" 
@@ -160,7 +166,7 @@ export default function Updatepost(props)
                     {message}
                   </div>
                 </div>
-              )}
+        )}
     
     </form>
     

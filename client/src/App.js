@@ -29,7 +29,7 @@ function App() {
             <Route path='/userposts' component = {Userposts} />
             <Route path='/allposts' component = {Allposts}/>
             <Route path='/searchuserposts' component = {SearchUser}/>
-            <Route path='/updatepost' component = {Updatepost}/>
+            <Route path='/updatepost/:id/' component = {Updatepost}/>
           </Switch>
     </div>
     </Router>

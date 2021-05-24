@@ -54,7 +54,7 @@ export default function Newpost()
           
           setSuccessful(true);
 
-          window.location='/allposts';
+          window.location='/userposts';
         }
 
 

@@ -3,6 +3,7 @@ const router = express.Router();
 const post = require("../models/newpost");
 const verifytoken = require("../middleware/verifytoken");
 const validpost = require("../Validation/posts");
+const validupdatepost = require("../Validation/updatepost");
 
 
 router.get("/",verifytoken,(req, res) => {
@@ -105,26 +106,25 @@ router.post("/newpost",verifytoken , (req,res)=>{
 
 router.post("/update/:id",verifytoken ,(req , res)=>{
 
-    const {flaws, isValid} = validpost(req.body);
+    const {flaws, isValid} = validupdatepost(req.body);
 
     if(!isValid){
-        return res.json({status:500 , flaws,isValid});
+        return res.json({status:500 , flaws, isValid});
     }
 
     const title=req.body.title;
     const body = req.body.body;
-    const author = req.body.author;
 
-    post.findOneAndUpdate({_id:req.params.id} ,{ $set: { title, body ,author} },
+    post.findOneAndUpdate({_id:req.params.id} ,{ $set: { title, body} },
         { new: true ,useFindAndModify: false} , (err,posts) =>{
             
             if(err){
-                res.json({status: 400, message: "Error Updating Existing Post" ,isValid})
+                res.json({status: 400, message: "Error Updating Existing Post" ,flaws , isValid})
             }
 
 
             else{
-                res.json({status: 200, meesage: "Post Updated Successully",isValid});
+                res.json({status: 200, message: "Post Updated Successully", isValid});
             }
 
         });

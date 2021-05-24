@@ -2,8 +2,7 @@ import React, {useState ,useEffect} from 'react';
 import axios from "axios";
 import './../../css/allposts.css';
 import { Container, Row, Col, Button } from "react-bootstrap";
-import UpdatePost from "./updatepost";
-
+import {Link} from "react-router-dom";
 
 export default function Userposts()
 {
@@ -12,8 +11,8 @@ export default function Userposts()
     const [loggedin , setloggedin] = useState(false);
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState("");
-    const [needupdate, setneedupdate] = useState(false);
-    const [updatearticles, setupdatearticles] = useState([]);
+    // const [needupdate, setneedupdate] = useState(false);
+    // const [updatearticles, setupdatearticles] = useState([]);
 
 
     useEffect(() => {
@@ -50,18 +49,20 @@ export default function Userposts()
         }
     }, []);
 
-    const updatepost = (e) =>{
+    // const updatepost = (e) =>{
 
-     setupdatearticles(e);
+    //  setupdatearticles(e);
 
-     setneedupdate(true);
+    // //  setneedupdate(true);
+    // console.log(updatearticles);
+ 
 
-    //  console.log(updatearticles);
+    // //  console.log(updatearticles);
 
     
     //  window.location = '/updatepost';
      
-    };
+    // };
 
   
 
@@ -90,7 +91,7 @@ export default function Userposts()
               
               setSuccessful(true);
 
-              window.location='/allposts';
+              window.location='/userposts';
             }
           })
           .catch((error) => {
@@ -131,8 +132,7 @@ export default function Userposts()
 
                <div>
 
-             {/* <UpdatePost data = {updatearticles} /> */}
- 
+            
               {message && (
                  <div className="form-group">
                    <div
@@ -173,21 +173,24 @@ export default function Userposts()
                                  
                                      <Row className="mt-4">
                                         <Col className="text-center">
+                                        <Link
+                                            to={`/updatepost/${article._id}/`}
+                                           
+                                        >
                                            <Button
                                               className="mr-2"
                                               variant="outline-info"
-                                            onClick = {() => updatepost([article._id,article.title,article.body,article.author,article.date])}  
+                                            // onClick = {() => updatepost([article._id,article.title,article.body,article.author,article.date])}  
                                            >
                                               Edit
                                            </Button>
+                                           </Link>
+
                                            <Button variant="outline-danger" onClick={() => {if(window.confirm('Are you sure you want to Delete this Post?'))deletepost(article._id); }}>
                                               Delete
                                            </Button>
                                         </Col>
-                                     </Row>
-
-
-                                    
+                                     </Row>           
                         </Container>
     
                               )
