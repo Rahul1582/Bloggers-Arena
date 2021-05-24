@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 const users = require("./routes/users")
 const posts = require("./routes/posts");
 require("dotenv").config();
-const passport = require("passport");
 
 const app= express();
 app.use(cors());
@@ -20,6 +19,8 @@ app.use("/posts",posts);
 connectdb();
 
 const PORT = process.env.PORT || 8000;
+
+console.log(PORT);
 
 app.get('/', (req,res) => {
     res.send('Welcome to Bloggers Arena');
