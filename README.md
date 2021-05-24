@@ -9,7 +9,7 @@ Here Users can Login, Register make Authenticated Requests and Users can Read, W
 <img src ="./readmeimages/blog1.png"  width=300 height=250>  
 <br>
 
-# GETTING STARTED :-
+### GETTING STARTED :-
 
 - Clone this Repository using  `git clone <repo>`
 
@@ -25,7 +25,7 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 
-# FEATURES:-
+### FEATURES:-
 
 - This is a Fully Functioning Blogging Website with User Authentication And Authorization.
 
@@ -41,7 +41,7 @@ they had registered themselves previously.
 - This Application is using MongoDB Atlas's free Cloud Service as a Database Service.
 
 
-# TECHNOLOGIES USED:
+### TECHNOLOGIES USED:
 
 FRONTEND: React.js, React Hooks, React-Bootstrap, Axios
 
@@ -49,11 +49,11 @@ DATABASE: MongoDB Atlas
 
 BACKEND:  Node.js, Express.js, Passport.js, JsonWebToken
 
-# SCREENSHOTS:- 
+### SCREENSHOTS:- 
 
 
 
-# 🤝 HOW TO CONTRIBUTE?
+### 🤝 HOW TO CONTRIBUTE?
 
 - Take a look at the Existing Issues or create your own Issues!
 
