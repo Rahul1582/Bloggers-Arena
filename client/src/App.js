@@ -2,7 +2,6 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-// import logo from './logo.svg';
 import Login from "./components/login";
 import SignUp from "./components/register";
 import Home from "./components/home";

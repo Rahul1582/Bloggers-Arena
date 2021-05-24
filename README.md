@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# BLOGGERS ARENA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a MERN Stack based fully Functioning Blogging Website.
+<br>
+Here Users can Login, Register make Authenticated Requests and Users can Read, Write, Update, Delete Blogs and also Search Blogs by Author Name.
 
-## Available Scripts
 
-In the project directory, you can run:
+<br>
+<img src ="./readmeimages/blog1.png"  width=300 height=250>  
+<br>
 
-### `npm start`
+# GETTING STARTED :-
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Clone this Repository using  `git clone <repo>`
+
+- Do cd to the directories and type `npm install`.
+
+- The do `cd Server`.
+
+- Then run `npm run dev`. By Runing this Both the Frontend and Backend Server will be running Concurrently.
+
+- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# FEATURES:-
 
-### `npm run build`
+- This is a Fully Functioning Blogging Website with User Authentication And Authorization.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Here Users Can see all the Posts posted in this Website without registering themselves and even without loggin in to the Website..
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- In Order to write a New Post, the User has to get registered first if they are using this platform for first time or directly login if
+they had registered themselves previously.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- After logging in the User can Write a post, Update an Existing Post , Search posts by Author Name.
 
-### `npm run eject`
+- Once a User logs in you are good to go and Whenever the user next time visits this website the user is not reqiuired to log in Again.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- This Application is using MongoDB Atlas's free Cloud Service as a Database Service.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# TECHNOLOGIES USED:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+FRONTEND: React.js, React Hooks, React-Bootstrap, Axios
 
-## Learn More
+DATABASE: MongoDB Atlas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+BACKEND:  Node.js, Express.js, Passport.js, JsonWebToken
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# SCREENSHOTS:- 
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+# 🤝 HOW TO CONTRIBUTE?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Take a look at the Existing Issues or create your own Issues!
 
-### Making a Progressive Web App
+- Wait for the Issue to be assigned to you after which you can start working on it.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Fork the Repo and create a Branch for any Issue that you are working upon.
 
-### Advanced Configuration
+- Create a Pull Request which will be promptly reviewed and suggestions would be added to improve it.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Add Screenshots to help us know what this Script is all about.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

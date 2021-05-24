@@ -64,6 +64,8 @@ const onchangesearch = (e) =>{
 }
 
 const searchuserpost = (e) => {
+
+   e.preventDefault();
    
     setMessage("");
     setSuccessful(false);
@@ -110,7 +112,7 @@ const searchuserpost = (e) => {
 
       <h1>SEARCH USER POSTS BY TYPING THIER AUTHOR NAME</h1>
       <br></br>
-    <Paper component="form" className={classes.root}>
+    <Paper component="form" className={classes.root} onSubmit = {searchuserpost}>
       
       <InputBase
         className={classes.input}

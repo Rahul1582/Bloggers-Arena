@@ -3,22 +3,15 @@ import axios from "axios";
 import './../../css/allposts.css';
 import { Container, Row, Col} from "react-bootstrap";
 
-
-
 export default function Allposts()
 {
 
     const [articles, setarticles] = useState([]);
-    const [loggedin , setloggedin] = useState(false);
 
 
     useEffect(() => {
        
-        axios.get('posts/allposts', {
-            headers: {
-                "x-access-token": localStorage.getItem("usertoken")
-            }
-          })
+        axios.get('posts/allposts', )
           .then((res) => {
             console.log(res.data.posts);
             setarticles(res.data.posts);
@@ -28,30 +21,9 @@ export default function Allposts()
           })
 
     }, []);
-    
-    useEffect((loggedin) => {
-  
-        if(localStorage.getItem("loggedin")==='true'){
-          
-          if(!loggedin){
-            setloggedin(true);
-          }
-    
-          else{
-    
-            if(loggedin){
-              setloggedin(false);
-            }
-          }
-        }
-    }, []);
 
 
-        if(loggedin){
-        
          if(articles.length===0){
-
-           
             return (
 
                <Container>
@@ -74,10 +46,7 @@ export default function Allposts()
 
             return ( 
 
-        
                <div>
-
-                  
                       <ol>
                       <div className="grid-container mx-3">
                       {
@@ -117,21 +86,6 @@ export default function Allposts()
                       </div>
           );
          }
-        }
-        else{
-            return (
-                <Container>
-                <br></br><br></br><br></br>
-                <div className="form-group">
-                           <div
-                             className={ "alert alert-danger" }
-                             role="alert"
-                           >
-                             You Need to Login to Access this Feature
-                           </div>
-                         </div>
-            
-                </Container>
-            );
-        }
+     
+        
 }

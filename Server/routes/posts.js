@@ -149,7 +149,7 @@ router.post("/delete/:id",verifytoken, (req, res) =>{
 });
 
 
-router.get("/allposts",verifytoken,(req, res) => {
+router.get("/allposts" , (req, res) => {
 
     // console.log(username);
     post.find({} , (err,posts)=>{
