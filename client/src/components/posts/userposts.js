@@ -11,11 +11,14 @@ export default function Userposts()
     const [loggedin , setloggedin] = useState(false);
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState("");
+    // const [interval, setinterval] = useState("");
     // const [needupdate, setneedupdate] = useState(false);
     // const [updatearticles, setupdatearticles] = useState([]);
 
 
     useEffect(() => {
+
+        // interval = setinterval(() => this.setState({ time: Date.now() }), 1000);
        
         axios.get('posts/', {
             headers: {
@@ -48,23 +51,7 @@ export default function Userposts()
           }
         }
     }, []);
-
-    // const updatepost = (e) =>{
-
-    //  setupdatearticles(e);
-
-    // //  setneedupdate(true);
-    // console.log(updatearticles);
  
-
-    // //  console.log(updatearticles);
-
-    
-    //  window.location = '/updatepost';
-     
-    // };
-
-  
 
     const deletepost = (e) => {
    

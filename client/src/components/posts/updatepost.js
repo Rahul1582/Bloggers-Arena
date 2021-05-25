@@ -18,7 +18,7 @@ export default function Updatepost(props)
 
     useEffect(() => {
        
-    axios.get('http://localhost:8000/posts/post/' + id,{ params: {
+    axios.get('https://blog-posting-mern-deploy.herokuapp.com/posts/post/' + id,{ params: {
        id
       }},
        {
@@ -61,7 +61,7 @@ export default function Updatepost(props)
     setSuccessful(false);
 
 
-    axios.post('http://localhost:8000/posts/update/' + id + "?" + id,
+    axios.post('https://blog-posting-mern-deploy.herokuapp.com/posts/update/' + id + "?" + id,
     {
       title:title,
       body:body,

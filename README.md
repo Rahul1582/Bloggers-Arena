@@ -45,9 +45,9 @@ they had registered themselves previously.
 
 FRONTEND: React.js, React Hooks, React-Bootstrap, Axios
 
-DATABASE: MongoDB Atlas
+DATABASE: MongoDB
 
-BACKEND:  Node.js, Express.js, Passport.js, JsonWebToken
+BACKEND:  Node.js, Express.js, JsonWebToken
 
 ### SCREENSHOTS:- 
 
