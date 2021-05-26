@@ -32,46 +32,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// const required = (value) => {
-//   if (!value) {
-//     return (
-//       <div className="alert alert-danger" role="alert">
-//         This field is required!
-//       </div>
-//     );
-//   }
-// };
-
-// const validEmail = (value) => {
-//   if (!isEmail(value)) {
-//     return (
-//       <div className="alert alert-danger" role="alert">
-//         This is not a valid email.
-//       </div>
-//     );
-//   }
-// };
-
-// const vname = (value) => {
-//   if (value.length < 3 || value.length > 20) {
-//     return (
-//       <div className="alert alert-danger" role="alert">
-//         The name must be between 6 and 20 characters.
-//       </div>
-//     );
-//   }
-// };
-
-// const vpassword = (value) => {
-//   if (value.length < 6 || value.length > 40) {
-//     return (
-//       <div className="alert alert-danger" role="alert">
-//         The password must be between 6 and 20 characters.
-//       </div>
-//     );
-//   }
-// };
-
 
 export default function Register() {
   const classes = useStyles();

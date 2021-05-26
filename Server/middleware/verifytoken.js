@@ -2,11 +2,9 @@ const user = require("../models/newuser");
 const secret = require("../Config/sectoken");
 const jwt = require("jsonwebtoken");
 
-
-
 function verifyToken(req, res, next) {
    const token = req.headers["x-access-token"];
-  //  console.log(token);
+  
    if (!token)
      return res.json({
        status: 500,

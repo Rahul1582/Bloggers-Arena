@@ -38,7 +38,17 @@
     color: aqua;
 }
 
+.form-group input:focus {
+    background-color: #121212;
+    color: aqua;
+}
+
 .form-group textarea{
+    background-color: #121212;
+    color: aqua;
+}
+
+.form-group textarea:focus {
     background-color: #121212;
     color: aqua;
 }

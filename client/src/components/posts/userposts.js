@@ -5,6 +5,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import {Link} from "react-router-dom";
 import HashLoader from "react-spinners/HashLoader";
 import { css } from "@emotion/react";
+import formatteddate from "../../utils/formatteddate";
 
 const override = css`
 display: block;
@@ -184,7 +185,7 @@ export default function Userposts()
                                   </Row>
                                   <Row className="d-flex flex-column font-italic footerStyle">
                                      <Col>Created by : {article.author}</Col>
-                                     <Col>Date: {article.date}</Col>
+                                     <Col>Date: {formatteddate(article.date)}</Col>
                                   </Row>
                                  
                                      <Row className="mt-4">

@@ -13,7 +13,6 @@ import SearchUser from './components/posts/searchuserpost';
 import Userposts  from './components/posts/userposts';
 import Updatepost from "./components/posts/updatepost";
 
-
 function App() {
 
   return (
@@ -21,7 +20,6 @@ function App() {
     <Router>
       <Header />
        <div className="App">
-       
              <Switch>
                <Route exact path="/" component={Home} />
                <Route path="/sign-in" component={Login} />
@@ -33,7 +31,6 @@ function App() {
                <Route path='/searchuserposts' component = {SearchUser}/>
                <Route path='/updatepost/:id/' component = {Updatepost}/>
              </Switch>
-       
        </div>
        </Router>
       

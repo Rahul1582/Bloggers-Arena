@@ -7,7 +7,7 @@ import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import { Container, Row, Col } from "react-bootstrap";
-
+import formatteddate from "../../utils/formatteddate";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -187,7 +187,7 @@ const searchuserpost = (e) => {
                                   </Row>
                                   <Row className="d-flex flex-column font-italic footerStyle">
                                      <Col>Created by : {article.author}</Col>
-                                     <Col>Date: {article.date}</Col>
+                                     <Col>Date: {formatteddate(article.date)}</Col>
                                   </Row>
                                 
                                 

@@ -3,6 +3,7 @@ import { Container} from "react-bootstrap";
 import axios from 'axios';
 import "./../../css/newpost.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+const Filter = require("bad-words"); 
 
 export default function Updatepost(props) 
 {
@@ -12,7 +13,6 @@ export default function Updatepost(props)
   const [message, setMessage] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [loggedin , setloggedin] = useState(false);
-
 
     const id = props.match.params.id;
 
@@ -41,7 +41,6 @@ export default function Updatepost(props)
   }, [id]);
 
 
- 
   const onchangetitle = (e) => {
     const title = e.target.value;
     settitle(title);
@@ -50,7 +49,11 @@ export default function Updatepost(props)
 
   const onchangebody = (e) => {
     const body = e.target.value;
-    setbody(body);
+    const filter = new Filter();
+
+    const filteredbody = filter.clean(body);
+
+    setbody(filteredbody);
   };
 
   const handleupdatepost = (e) => {
@@ -96,7 +99,6 @@ export default function Updatepost(props)
 
   }
 
-
   useEffect((loggedin) => {
   
     if(localStorage.getItem("loggedin")==='true'){
@@ -114,13 +116,8 @@ export default function Updatepost(props)
     }
 }, []);
 
-
   if(loggedin){
-
-
     return(
-    
-
         <Container>
             <br></br><br></br>
             <h1>UPDATE AN EXISTING POST</h1>
@@ -175,10 +172,7 @@ export default function Updatepost(props)
     <br></br>
     <br></br>
     </Container>
-    
-    
     );
-
    }
 
   else{
