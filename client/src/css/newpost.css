@@ -1,12 +1,10 @@
 .form-control {
     position:relative;
-    z-index: 999; 
+    z-index: 999;
 }
 
 .title{
-
     color: white;
-
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
@@ -17,7 +15,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:skyblue;
+  background-color:#121212;
   align-items: center;
  font-family: 'Yeon Sung', cursive;
 }
@@ -28,6 +26,21 @@
 }
 .form-group {
     margin-bottom: 1rem;
+}
+
+
+.form-group label{
+    color:lightseagreen;
+}
+
+.form-group input{
+    background-color: #121212;
+    color: aqua;
+}
+
+.form-group textarea{
+    background-color: #121212;
+    color: aqua;
 }
 
 h1{

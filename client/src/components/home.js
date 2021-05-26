@@ -18,7 +18,7 @@ export default function Home() {
                               BLOG POST APPLICATION  
                     </h1>
                             <p>
-                            Save Your Blogs !! Join with us! Login or Register. Write your own Blog !! Express your feelings!!
+                            Write your own Blog !! Express your feelings!! Save Your Blogs !! Join with us! Login or Register. 
                     </p>
                    <Link to = "/sign-up"><Button variant="contained" color="primary">Register</Button></Link>
 

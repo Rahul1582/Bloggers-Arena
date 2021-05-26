@@ -3,6 +3,14 @@ import axios from "axios";
 import './../../css/allposts.css';
 import { Container, Row, Col, Button } from "react-bootstrap";
 import {Link} from "react-router-dom";
+import HashLoader from "react-spinners/HashLoader";
+import { css } from "@emotion/react";
+
+const override = css`
+display: block;
+margin: 0 auto;
+border-color: red;
+`;
 
 export default function Userposts()
 {
@@ -11,9 +19,18 @@ export default function Userposts()
     const [loggedin , setloggedin] = useState(false);
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState("");
-    // const [interval, setinterval] = useState("");
-    // const [needupdate, setneedupdate] = useState(false);
-    // const [updatearticles, setupdatearticles] = useState([]);
+    const [loading,setloading] = useState(false);
+
+
+
+    useEffect(()=> {
+    
+      setloading(true);
+      setTimeout(()=> {
+        setloading(false);
+      },7000)
+  
+    }, [])
 
 
     useEffect(() => {
@@ -94,21 +111,27 @@ export default function Userposts()
      
          if(articles.length===0){
 
-           
             return (
 
-               <Container>
-               <br></br><br></br><br></br>
-               <div className="form-group">
-                          <div
-                            className={ "alert alert-danger" }
-                            role="alert"
-                          >
-                            You have no Posts. Add New Posts to view the Posts.
-                          </div>
-                        </div>
-           
-               </Container>
+              <div>
+                <br></br>
+              {loading ? (<HashLoader color={"#11DDED"} loading={loading} css={override} size={100} />) 
+              :
+              (
+                <Container>
+                <br></br><br></br><br></br>
+                <div className="form-group">
+                           <div
+                             className={ "alert alert-danger" }
+                             role="alert"
+                           >
+                             You have no Posts. Add New Posts to view the Posts.
+                           </div>
+                         </div>
+                </Container>
+              )
+              }
+               </div>
                );
 
          }
@@ -116,6 +139,12 @@ export default function Userposts()
          else{
 
             return ( 
+
+              <div>
+                <br></br>
+              {loading ? (<HashLoader color={"#11DDED"} loading={loading} css={override} size={100} />) 
+            :
+            (
 
                <div>
 
@@ -189,6 +218,9 @@ export default function Userposts()
                       </ol>  
 
                       </div>
+            )
+          }
+            </div>
 
           );
          

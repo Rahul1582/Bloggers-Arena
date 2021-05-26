@@ -2,12 +2,30 @@ import React, {useState ,useEffect} from 'react';
 import axios from "axios";
 import './../../css/allposts.css';
 import { Container, Row, Col} from "react-bootstrap";
+import HashLoader from "react-spinners/HashLoader";
+import { css } from "@emotion/react";
+
+const override = css`
+display: block;
+margin: 0 auto;
+border-color: red;
+`;
 
 export default function Allposts()
 {
 
     const [articles, setarticles] = useState([]);
+    const [loading,setloading] = useState(false);
 
+    useEffect(()=> {
+    
+      setloading(true);
+      setTimeout(()=> {
+        setloading(false);
+      },8000)
+  
+    }, [])
+    
 
     useEffect(() => {
        
@@ -26,6 +44,12 @@ export default function Allposts()
          if(articles.length===0){
             return (
 
+               <div>
+
+              <br></br>
+              {loading ? (<HashLoader color={"#11DDED"} loading={loading} css={override} size={100} />) 
+            
+            :(
                <Container>
                <br></br><br></br><br></br>
                <div className="form-group">
@@ -38,6 +62,11 @@ export default function Allposts()
                         </div>
            
                </Container>
+
+            )
+            }
+
+      </div>
                );
 
          }
@@ -45,6 +74,11 @@ export default function Allposts()
          else{
 
             return ( 
+               <div>
+                 <br></br>
+              {loading ? (<HashLoader color={"#11DDED"} loading={loading} css={override} size={100} />) 
+            
+            :(
 
                <div>
                       <ol>
@@ -84,6 +118,10 @@ export default function Allposts()
                        </div>
                       </ol>  
                       </div>
+            )
+            }
+            </div>
+         
           );
          }
      
