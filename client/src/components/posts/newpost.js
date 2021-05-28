@@ -3,7 +3,7 @@ import { Container} from "react-bootstrap";
 import axios from 'axios';
 import "./../../css/newpost.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-const Filter = require("bad-words"); 
+// const Filter = require("bad-words"); 
 
 export default function Newpost() 
 {
@@ -28,11 +28,19 @@ export default function Newpost()
 
   const onchangebody = (e) => {
     const body = e.target.value;
-    const filter = new Filter();
 
-    const filteredbody = filter.clean(body);
+    // if(body){
 
-    setbody(filteredbody);
+    // const filter = new Filter();
+
+    // const filteredbody = filter.clean(body);
+
+    // setbody(filteredbody);
+
+    // }
+
+    setbody(body);
+ 
   };
 
   const handlepost = (e) => {

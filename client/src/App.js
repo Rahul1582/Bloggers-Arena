@@ -12,6 +12,8 @@ import Allposts from "./components/posts/allposts";
 import SearchUser from './components/posts/searchuserpost';
 import Userposts  from './components/posts/userposts';
 import Updatepost from "./components/posts/updatepost";
+import Page from "./components/404";
+
 
 function App() {
 
@@ -30,8 +32,10 @@ function App() {
                <Route path='/allposts' component = {Allposts}/>
                <Route path='/searchuserposts' component = {SearchUser}/>
                <Route path='/updatepost/:id/' component = {Updatepost}/>
+               <Route component = {Page}/>
              </Switch>
        </div>
+      <br></br>  
        </Router>
       
   );

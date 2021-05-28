@@ -2,12 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import "./../../css/details.css";
+import Footer from "../footer";
 
 export default function Details() 
 {
+  // const [authorname,setauthorname] = useState("");
+  // const [message, setMessage] = useState("");
+  // const [successful, setSuccessful] = useState(false);
+  // const [loggedin , setloggedin] = useState(false);
+
+  
+
 return(
 
-    
   <div>
       <Container>
         
@@ -35,6 +42,10 @@ return(
       </div>
     </div>
     </Container>
+
+    <br></br>
+
+    <Footer/>
   </div>
 
 );

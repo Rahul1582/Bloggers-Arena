@@ -61,7 +61,7 @@ export default function Login() {
             email:email,
             password:password
         }).then(function (res){
-            console.log(res);
+           
             const newmessage = res.data.message || res.data.flaws.name || res.data.flaws.email || res.data.flaws.password;
             setMessage(newmessage);
             const valid = res.data.isValid;
@@ -73,6 +73,8 @@ export default function Login() {
               localStorage.setItem('loggedin',true);
 
               window.location='/details';
+             
+              
             }
 
 
@@ -172,6 +174,7 @@ export default function Login() {
 
         </form>
       </div>
+      <br></br>
     </Container>
 
   );

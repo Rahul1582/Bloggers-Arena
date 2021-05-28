@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 import img1 from '../asset-1.png';
 import './../css/home.css';
+import Footer from "./footer";
 
 export default function Home() {
 
@@ -38,6 +39,10 @@ export default function Home() {
                     </div> 
                         
          </div>
+
+         <br></br>
+
+         <Footer/>
 
          </div>
   );

@@ -14,7 +14,7 @@
 
 <br>
   <p align="center">
-<img src ="./readmeimages/blog1.png"  width=300 height=250>  
+<img src ="./readmeimages/img1.JPG"  width=800 height=400>  
 </p>
 <br>
 
@@ -45,7 +45,7 @@ You will also see any lint errors in the console.
 
 - After logging in the `User` can `Write a post, Update an Existing Post , Search posts by Author Name` ,`View its created posts`.
 
-- While creating a `new post` `anonymous post` creations are `handled` by using the `bad-words package` of npm. Still it does not cover all the bad words but can `bypass` some of them. Its a `request` for all the `users` using this platform to `take care of the words` they use while `creating a post`.
+<!-- - While creating a `new post` `anonymous post` creations are `handled` by using the `bad-words package` of npm. Still it does not cover all the bad words but can `bypass` some of them. Its a `request` for all the `users` using this platform to `take care of the words` they use while `creating a post`. -->
 
 - `Once` a `User logs in` you are good to go and Whenever the user `next time visits this website` the user is `not reqiuired to log in Again`.
 
@@ -64,6 +64,26 @@ Database:- MongoDB
 ```
 
 ### SCREENSHOTS:- 
+
+<br>
+  <p align="center">
+<img src ="./readmeimages/img2.JPG"  width=800 height=400>  
+</p>
+<br>
+
+
+<br>
+  <p align="center">
+<img src ="./readmeimages/img3.JPG"  width=800 height=400>  
+</p>
+<br>
+
+
+<br>
+  <p align="center">
+<img src ="./readmeimages/img4.JPG"  width=800 height=400>  
+</p>
+<br>
 
 
 
