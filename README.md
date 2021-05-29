@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   
-  <h1 align="center">BLOGGERS ARENA</h3>
+  <h1 align="center">BLOGGERS ARENA 👨‍💻</h3>
 
   <p align="center">
     This is a MERN Stack based fully Functioning Blogging Website.
@@ -19,9 +19,28 @@
 <br>
 
 
-### GETTING STARTED :-
+### Getting Started ⚡ :-
 
-- Clone this Repository using  `git clone <repo>`
+
+ **1. Clone this repo by running the following command :-**
+ ```bash
+  git clone https://github.com/Rahul1582/Bloggers-Arena.git
+  cd Server
+ ```
+ 
+ **2. Now Install all the required packages by running the following commands :-**
+ ```bash
+  npm install 
+  npm run install-client
+ ```
+ **3. Now start the React and Node server together by running the following command :-**
+ ```bash
+  npm run dev
+ ```   
+   
+ **3.** **🎉  Open your browser and go to  `https://localhost:3000`**
+
+<!-- - Clone this Repository using  `git clone <repo>`
 
 - Do cd to the directories and type `npm install`.
 
@@ -32,10 +51,10 @@
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You will also see any lint errors in the console. -->
 
 
-### FEATURES:-
+### Features and Functionalities 😃:-
 
 - This is a Fully Functioning Blogging Website with `User Authentication` And `Authorization`.
 
@@ -52,18 +71,17 @@ You will also see any lint errors in the console.
 - This Application is using `MongoDB Atlas's` free Cloud Service as the `Database Service`.
 
 
-### TECHNOLOGIES USED:-
-```
-Frontend:- React.js, React Hooks, React-Bootstrap, Axios
-```
-```
-Backend:- Node.js, Express.js, JsonWebToken
-```
-```
-Database:- MongoDB
-```
+### Tech Stack 💻
 
-### SCREENSHOTS:- 
+ - [React.js](https://reactjs.org/)
+ - [Node.js](https://nodejs.org/en/)
+ - [Express.js](https://expressjs.com/)
+ - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+ - [Material UI](https://material-ui.com/)
+ - [React Bootstrap](https://react-bootstrap.github.io/)
+
+
+### Screenshots:- 
 
 <br>
   <p align="center">
@@ -87,7 +105,7 @@ Database:- MongoDB
 
 
 
-### 🤝 HOW TO CONTRIBUTE?
+### 🤝 How To Contribute?
 
 - Take a look at the Existing Issues or create your own Issues!
 

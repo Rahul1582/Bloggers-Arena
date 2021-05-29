@@ -166,14 +166,7 @@ export default function Userposts()
                          
                           articles.map(article => {
                               return(
-                                 
-                                  // <div className="card" key={article.id}>
-                                  //     <div className="card-body">
-                                  //     <h5 className="card-title">{article.title}</h5>
-                                  //     <h6 className="card-subtitle mb-2 text-muted">Author:{article.author}</h6>
-                                  //     <h6 className="card-subtitle mb-2 text-muted">Date Posted:{article.date}</h6>
-                                  //     <p className="card-text limit">{article.body}</p> </div>
-                                  // </div> 
+   
                                   <Container className="mt-4 viewPost" key={article._id}>
                                   <Row>
                                      <Col className="text-center postTitle">

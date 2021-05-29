@@ -4,6 +4,9 @@ import axios from 'axios';
 import "./../../css/newpost.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // const Filter = require("bad-words"); 
+// import { Editor } from "react-draft-wysiwyg";
+// import { convertToRaw } from "draft-js";
+// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 export default function Newpost() 
 {
@@ -27,17 +30,13 @@ export default function Newpost()
   };
 
   const onchangebody = (e) => {
+    // const blocks = convertToRaw(e.getCurrentContent()).blocks;
+
+    // const value = blocks.map(block => (!block.text.trim() && '\n') || block.text).join('\n');
+
+    // console.log(value);
+
     const body = e.target.value;
-
-    // if(body){
-
-    // const filter = new Filter();
-
-    // const filteredbody = filter.clean(body);
-
-    // setbody(filteredbody);
-
-    // }
 
     setbody(body);
  
@@ -130,7 +129,17 @@ export default function Newpost()
             onChange={onchangetitle}
             />
             <label>BODY CONTENT :</label>
-        <textarea 
+
+
+        {/* <Editor
+              editorState={body}
+              toolbarClassName="report-editor"
+              wrapperClassName="wrapperClassName"
+              editorClassName="editorClassName"
+              onEditorStateChange={onchangebody}
+        /> */}
+
+         <textarea 
           rows="10"
           cols="150"
           className="form-control"
