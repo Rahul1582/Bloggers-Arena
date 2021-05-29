@@ -38,7 +38,7 @@ export default function Userposts()
 
         // interval = setinterval(() => this.setState({ time: Date.now() }), 1000);
        
-        axios.get('posts/', {
+        axios.get('https://blog-posting-mern-deploy.herokuapp.com/posts/', {
             headers: {
                 "x-access-token": localStorage.getItem("usertoken")
             }
@@ -76,7 +76,7 @@ export default function Userposts()
       setMessage("");
       setSuccessful(false);
   
-      axios.post('posts/delete/'+e ,{ params: {
+      axios.post('https://blog-posting-mern-deploy.herokuapp.com/posts/delete/'+e ,{ params: {
          e
        }}
        ,{

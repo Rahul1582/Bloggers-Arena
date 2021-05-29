@@ -30,7 +30,7 @@ export default function Allposts()
 
     useEffect(() => {
        
-        axios.get('posts/allposts', )
+        axios.get('https://blog-posting-mern-deploy.herokuapp.com/posts/allposts', )
           .then((res) => {
             console.log(res.data.posts);
             setarticles(res.data.posts);

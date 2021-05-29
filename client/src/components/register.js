@@ -66,7 +66,7 @@ export default function Register() {
     setMessage("");
     setSuccessful(false);
 
-    axios.post('auth/register',{
+    axios.post('https://blog-posting-mern-deploy.herokuapp.com/auth/register',{
             name: name,
             email:email,
             password:password

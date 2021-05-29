@@ -49,7 +49,7 @@ export default function Newpost()
     setMessage("");
     setSuccessful(false);
 
-    axios.post('posts/newpost',{
+    axios.post('https://blog-posting-mern-deploy.herokuapp.com/posts/newpost',{
         title:title,
         body:body,
         author:author }, {

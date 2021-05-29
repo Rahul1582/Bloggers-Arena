@@ -57,7 +57,7 @@ export default function Login() {
     setMessage("");
     setSuccessful(false);
 
-    axios.post('auth/login',{
+    axios.post('https://blog-posting-mern-deploy.herokuapp.com/auth/login',{
             email:email,
             password:password
         }).then(function (res){

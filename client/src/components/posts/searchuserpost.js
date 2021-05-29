@@ -70,7 +70,7 @@ const searchuserpost = (e) => {
     setMessage("");
     setSuccessful(false);
 
-    axios.get('posts/author/'+author ,{ params: {
+    axios.get('https://blog-posting-mern-deploy.herokuapp.com/posts/author/'+author ,{ params: {
        author
      }}
      ,{
