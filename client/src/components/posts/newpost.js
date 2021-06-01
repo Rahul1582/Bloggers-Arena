@@ -21,11 +21,15 @@ export default function Newpost()
 
   const onchangetitle = (e) => {
     const title = e.target.value;
+
+    localStorage.setItem('title', title);
     settitle(title);
   };
 
   const onchangeauthor = (e) => {
     const author = e.target.value;
+
+    localStorage.setItem('author', author);
     setauthor(author);
   };
 
@@ -37,6 +41,8 @@ export default function Newpost()
     // console.log(value);
 
     const body = e.target.value;
+
+    localStorage.setItem('body', body);
 
     setbody(body);
  
@@ -66,6 +72,10 @@ export default function Newpost()
           
           setSuccessful(true);
 
+          localStorage.removeItem('author');
+          localStorage.removeItem('title');
+          localStorage.removeItem('body');
+
           window.location='/userposts';
         }
 
@@ -76,6 +86,27 @@ export default function Newpost()
     })
 
   }
+
+  useEffect(() => {
+  
+    if(localStorage.getItem('author')){
+       
+       setauthor(localStorage.getItem('author'));
+
+    }
+  
+    if(localStorage.getItem('title')){
+       
+      settitle(localStorage.getItem('title'));
+
+    }
+      
+    if(localStorage.getItem('body')){
+
+      setbody(localStorage.getItem('body'));
+    }
+    
+}, []);
 
 
   useEffect((loggedin) => {
@@ -119,6 +150,7 @@ export default function Newpost()
             className="form-control"
             name="author"
             label="Author"
+            value={author}
             onChange={onchangeauthor}/>
     
         <label>TITLE :</label><input 
@@ -126,6 +158,7 @@ export default function Newpost()
             className="form-control"
             name="title"
             label="Title"
+            value={title}
             onChange={onchangetitle}
             />
             <label>BODY CONTENT :</label>
@@ -145,6 +178,7 @@ export default function Newpost()
           className="form-control"
           name="body"
           label="Body"
+          value={body}
           onChange={onchangebody}/>
         
         <br></br>

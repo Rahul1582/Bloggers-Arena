@@ -59,7 +59,6 @@ export default function Updatepost(props)
     // setbody(filteredbody1);
 
     // }
-
     setbody(body);
  
   };
@@ -94,7 +93,6 @@ export default function Updatepost(props)
         if(valid && res.data.status===200){
           
           setSuccessful(true);
-
           window.location='/userposts';
         }
 
@@ -106,6 +104,7 @@ export default function Updatepost(props)
     })
 
   }
+  
 
   useEffect((loggedin) => {
   
