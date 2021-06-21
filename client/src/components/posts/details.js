@@ -15,7 +15,7 @@ export default function Details() {
         <div className="jumbotron">
           <h1 className="display-3">Welcome!</h1>
           <p>
-            This is a MERN stack based fully functioning blog system. Here, you
+            This is a MERN Stack based Fully Functioning Blog System. Here, you
             can share your experience and ideas with other people.
           </p>
           <p>
@@ -32,17 +32,15 @@ export default function Details() {
           <div className="col-md-4">
             <h2>FRONTEND</h2>
             <p>
-              The front-end client is built as a simple-page-application using
-              React. Besides, React-Router is used for navigation. Bootstrap 4
+              The Front-end Client is built using React JS. Besides, React-Router is used for navigation. Bootstrap 4
               is used for page styling.
             </p>
           </div>
           <div className="col-md-4">
             <h2>BACKEND</h2>
             <p>
-              The back-end server is built with Express.js and Node.js, which
-              provides completed REST APIs for data interaction. Passport.js is
-              used as an authentication middleware in the sever. JSON Web Token
+              The Back-end Server is built with Express JS and Node JS, which
+              provides completed REST APIs for data interaction. JSON Web Token
               (JWT) is used for signing in user and making authenticated
               requests.
             </p>
@@ -50,9 +48,9 @@ export default function Details() {
           <div className="col-md-4">
             <h2>DATABASE</h2>
             <p>
-              MongoDB is used as the Back-end Database, which include different
+              Mongo DB is used as the Back-end Database, which include different
               data models/schemas (i.e., User, Post). Mongoose is used to access
-              the MongoDB for CRUD actions (create, read, update and delete).
+              the MongoDB for CRUD actions (Create, Read, Update and Delete).
             </p>
           </div>
         </div>
