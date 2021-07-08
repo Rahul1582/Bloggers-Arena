@@ -17,7 +17,7 @@ export default function Updatepost(props)
     const id = props.match.params.id;
 
     useEffect(() => {
-       
+ 
     axios.get('https://blog-posting-mern-deploy.herokuapp.com/posts/post/' + id,{ params: {
        id
       }},
@@ -106,22 +106,24 @@ export default function Updatepost(props)
   }
   
 
-  useEffect((loggedin) => {
-  
+  useEffect(() => {
+    
     if(localStorage.getItem("loggedin")==='true'){
-      
+    
       if(!loggedin){
-        setloggedin(true);
-      }
-
-      else{
-
-        if(loggedin){
-          setloggedin(false);
-        }
+        setloggedin(true);  
       }
     }
-}, []);
+
+    if(localStorage.getItem("loggedin")==='false'){
+     
+      if(loggedin){
+        setloggedin(false);
+      }
+     
+    }
+
+  }, [loggedin]);
 
   if(loggedin){
     return(

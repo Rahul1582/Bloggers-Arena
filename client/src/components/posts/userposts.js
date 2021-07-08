@@ -53,22 +53,24 @@ export default function Userposts()
 
     }, []);
     
-    useEffect((loggedin) => {
-  
-        if(localStorage.getItem("loggedin")==='true'){
-          
-          if(!loggedin){
-            setloggedin(true);
-          }
-    
-          else{
-    
-            if(loggedin){
-              setloggedin(false);
-            }
-          }
+    useEffect(() => {
+
+      if(localStorage.getItem("loggedin")==='true'){
+      
+        if(!loggedin){
+          setloggedin(true);  
         }
-    }, []);
+      }
+    
+      if(localStorage.getItem("loggedin")==='false'){
+       
+        if(loggedin){
+          setloggedin(false);
+        }
+       
+    }
+    
+    }, [loggedin]);
  
 
     const deletepost = (e) => {

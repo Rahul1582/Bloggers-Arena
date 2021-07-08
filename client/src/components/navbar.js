@@ -8,28 +8,28 @@ export default function Header() {
   const [loggedin , setloggedin] = useState(false);
 
 
-  useEffect((loggedin) => {
-  
+  useEffect(() => {
+
     if(localStorage.getItem("loggedin")==='true'){
-      
+    
       if(!loggedin){
-        setloggedin(true);
+        setloggedin(true);  
       }
-
-      else{
-
-        if(loggedin){
-          setloggedin(false);
-        }
-        
-      }
-
     }
-}, []);
+
+    if(localStorage.getItem("loggedin")==='false'){
+     
+      if(loggedin){
+        setloggedin(false);
+      }
+     
+  }
+
+}, [loggedin]);
 
 
   if(loggedin){
-
+    
   return (
 
     <nav className="navbar navbar-dark bg-dark sticky-top navbar-expand-lg font">
@@ -76,7 +76,8 @@ export default function Header() {
       <li className="navbar-item font">
       <Link to="/" className="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" 
       onClick={() => {
-      window.localStorage.removeItem("loggedin");
+
+      localStorage.setItem('loggedin',false);
       window.localStorage.removeItem("usertoken");
       window.location = "/";
       }}> Logout</Link>

@@ -40,22 +40,25 @@ export default function SearchUser() {
 
 
 
-  useEffect((loggedin) => {
-  
+  useEffect(() => {
+
+    
     if(localStorage.getItem("loggedin")==='true'){
-      
+    
       if(!loggedin){
-        setloggedin(true);
-      }
-
-      else{
-
-        if(loggedin){
-          setloggedin(false);
-        }
+        setloggedin(true);  
       }
     }
-}, []);
+
+    if(localStorage.getItem("loggedin")==='false'){
+     
+      if(loggedin){
+        setloggedin(false);
+      }
+     
+    }
+
+  }, [loggedin]);
 
 
 const onchangesearch = (e) =>{

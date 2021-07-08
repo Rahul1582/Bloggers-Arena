@@ -32,7 +32,7 @@ export default function Allposts()
        
         axios.get('https://blog-posting-mern-deploy.herokuapp.com/posts/allposts', )
           .then((res) => {
-            console.log(res.data.posts);
+            // console.log(res.data.posts);
             setarticles(res.data.posts);
           })
           .catch((error) => {
